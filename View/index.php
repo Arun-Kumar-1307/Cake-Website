@@ -16,7 +16,7 @@ include "../config/load.php";
     load_template("menu");
     load_template("gallery");
     load_template("about");
-    load_template("testimonials");
+    load_template("testimonial");
     load_template("contact");
     load_template("footer");
     ?>

@@ -2,7 +2,7 @@
         <div class="navbar-container">
             <div class="navbar-logo">
                 <span class="logo-icon">🍰</span>
-                <span class="logo-text">Artisan Cakes</span>
+                <span class="logo-text"> Cakes</span>
             </div>
             
             <div class="hamburger" id="hamburger">
