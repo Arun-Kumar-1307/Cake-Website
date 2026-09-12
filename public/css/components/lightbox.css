@@ -1,0 +1,145 @@
+/* Full-screen gallery viewer — driven by components/gallery-lightbox.js */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2100;
+    display: grid;
+    place-items: center;
+    padding: var(--space-lg) var(--space-md);
+    background: rgba(24, 11, 6, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    /* Same instant-open / delayed-close pattern as the modal, so the close
+       button is focusable the moment the viewer opens. */
+    transition: opacity var(--transition-base), visibility 0s linear 0.35s;
+}
+
+.lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--transition-base), visibility 0s;
+}
+
+.lightbox-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    max-width: min(1100px, 100%);
+    max-height: 100%;
+    transform: scale(0.96);
+    transition: transform var(--transition-base);
+}
+
+.lightbox.is-open .lightbox-figure {
+    transform: scale(1);
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 74vh;
+    width: auto;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    object-fit: contain;
+}
+
+.lightbox-caption {
+    text-align: center;
+    color: var(--text-on-dark);
+}
+
+.lightbox-caption-tag {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-gold-400);
+    margin-bottom: 2px;
+}
+
+.lightbox-caption-title {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+}
+
+.lightbox-counter {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.8rem;
+    color: var(--text-on-dark-muted);
+}
+
+/* Controls */
+.lightbox-btn {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: var(--color-white);
+    backdrop-filter: blur(6px);
+    transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.lightbox-btn svg {
+    width: 22px;
+    height: 22px;
+}
+
+.lightbox-btn:hover {
+    background: rgba(255, 255, 255, 0.28);
+    transform: scale(1.06);
+}
+
+.lightbox-btn:focus-visible {
+    outline: 3px solid var(--color-gold-400);
+    outline-offset: 2px;
+}
+
+.lightbox-close {
+    top: var(--space-md);
+    right: var(--space-md);
+}
+
+.lightbox-prev {
+    left: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-next {
+    right: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    transform: translateY(-50%) scale(1.06);
+}
+
+@media (max-width: 640px) {
+    .lightbox-prev,
+    .lightbox-next {
+        top: auto;
+        bottom: var(--space-md);
+        transform: none;
+    }
+
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+        transform: scale(1.06);
+    }
+
+    .lightbox-image {
+        max-height: 60vh;
+    }
+}

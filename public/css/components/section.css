@@ -1,0 +1,99 @@
+/* Shared section shell: vertical rhythm, heading block, decorative backdrops */
+.section {
+    position: relative;
+    padding: var(--space-3xl) 0;
+    overflow: hidden;
+}
+
+.section--alt {
+    background-color: var(--bg-section-alt);
+}
+
+.section--dark {
+    background: var(--gradient-dark);
+}
+
+.section-heading {
+    max-width: 680px;
+    margin: 0 auto var(--space-xl);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.section-heading .eyebrow::after {
+    content: '';
+    width: 28px;
+    height: 2px;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-pill);
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 2.9rem);
+    letter-spacing: -0.01em;
+}
+
+.section-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 56ch;
+}
+
+.section--dark .section-title {
+    color: var(--text-on-dark);
+}
+
+.section--dark .section-subtitle {
+    color: var(--text-on-dark-muted);
+}
+
+.section--dark .eyebrow {
+    color: var(--color-gold-400);
+}
+
+/* Decorative blobs used behind sections for depth */
+.section-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.section-blob--rose {
+    background: var(--color-rose-300);
+}
+
+.section-blob--gold {
+    background: var(--color-gold-400);
+}
+
+.section > .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Soft dotted texture overlay for richer surfaces */
+.section--dotted::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(140, 31, 69, 0.09) 1px, transparent 1px);
+    background-size: 22px 22px;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+@media (max-width: 640px) {
+    .section {
+        padding: var(--space-2xl) 0;
+    }
+
+    .section-heading {
+        margin-bottom: var(--space-xl);
+    }
+}

@@ -1,30 +1,75 @@
-<section id="about" class="about">
-    <div class="container about-content">
-        <div class="about-text">
-            <h2 class="section-title">About Our Studio</h2>
-            <p>Welcome to Artisan Cake Studio, where tradition meets innovation. Operating from our dedicated home kitchen, we create extraordinary cakes using only the finest ingredients and time-honored baking techniques.</p>
-            <p>Every cake is a masterpiece, carefully designed and hand-decorated to bring your celebrations to life. We specialize in custom orders that reflect your unique taste and style.</p>
-            
-            <div class="about-features">
-                <div class="feature">
-                    <div class="feature-icon">📦</div>
-                    <h3>Premium Ingredients</h3>
-                    <p>Only the finest quality ingredients</p>
+<?php
+
+/**
+ * About section: studio story plus the three promises.
+ */
+
+$features = [
+    [
+        'icon'  => 'leaf',
+        'title' => 'Scratch ingredients',
+        'text'  => 'Real butter, single-origin cocoa, seasonal fruit. Nothing from a packet mix.',
+    ],
+    [
+        'icon'  => 'palette',
+        'title' => 'Designed with you',
+        'text'  => 'Send a sketch, a colour or a Pinterest board — we build the cake around it.',
+    ],
+    [
+        'icon'  => 'clock',
+        'title' => 'Baked, then delivered',
+        'text'  => 'Every cake is baked the day before it reaches you. Never frozen, never held over.',
+    ],
+];
+?>
+
+<section id="about" class="section section--alt section--dotted">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text" data-reveal>
+                <span class="eyebrow">Our studio</span>
+                <h2 class="section-title">A home kitchen that grew up</h2>
+
+                <p>
+                    Artisan Cake Studio started at a kitchen table in 2013, baking birthday cakes for
+                    neighbours. Twelve years and several ovens later we are still a small team working out of
+                    one studio kitchen — which is exactly why every cake still gets weighed, piped and
+                    finished by hand.
+                </p>
+                <p>
+                    We take a limited number of orders each week on purpose. It means we can source fruit the
+                    day we need it, temper chocolate properly, and say yes when you ask for something that
+                    isn&rsquo;t on the menu.
+                </p>
+
+                <p class="about-signature">
+                    Baked with care, every single week
+                    <span>The Artisan Cake Studio team</span>
+                </p>
+            </div>
+
+            <div class="about-media" data-reveal>
+                <div class="about-image-frame">
+                    <img src="<?= asset('images/about-studio.jpg') ?>"
+                         alt="Two bakers arranging fresh raspberries and blueberries across a cream-frosted cake"
+                         width="1000" height="666" loading="lazy">
                 </div>
-                <div class="feature">
-                    <div class="feature-icon">🎨</div>
-                    <h3>Custom Design</h3>
-                    <p>Personalized cake designs</p>
-                </div>
-                <div class="feature">
-                    <div class="feature-icon">⏰</div>
-                    <h3>Made Fresh</h3>
-                    <p>Baked fresh for every order</p>
+
+                <div class="about-ribbon">
+                    <span class="about-ribbon-value">12</span>
+                    <span class="about-ribbon-label">Years of baking</span>
                 </div>
             </div>
         </div>
-        <div class="about-image">
-            <img src="/placeholder.svg?height=400&width=400" alt="Cake Baking Process">
+
+        <div class="about-features" data-reveal>
+            <?php foreach ($features as $feature) { ?>
+                <article class="feature">
+                    <span class="feature-icon"><?= icon($feature['icon']) ?></span>
+                    <h3><?= e($feature['title']) ?></h3>
+                    <p><?= e($feature['text']) ?></p>
+                </article>
+            <?php } ?>
         </div>
     </div>
 </section>

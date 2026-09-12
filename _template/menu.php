@@ -1,61 +1,101 @@
 <?php
 
-class MenuDataItem {
-    public $id;
-    public $name;
-    public $description;
-    public $category;
-    public $price;
-    public $image;
+/**
+ * Menu section: filterable cake cards.
+ * Content comes from config/data/menu-items.php; each card carries its full
+ * detail payload in data-* attributes, which components/menu-modal.js reads.
+ */
 
-    public function __construct($id, $name, $description, $category, $price, $image) {
-        $this->id = $id;
-        $this->name = $name;
-        $this->description = $description;
-        $this->category = $category;
-        $this->price = $price;
-        $this->image = $image;
-    }
-}
+$menuItems = load_data('menu-items');
 
-$menuItems = [
-    new MenuDataItem(1, "Classic Chocolate Cake", "Rich, decadent chocolate cake with silky frosting", "chocolate", 45, "/placeholder.svg?key=79j2n"),
-    new MenuDataItem(2, "Vanilla Dreams", "Fluffy vanilla cake with buttercream and fresh berries", "vanilla", 40, "/placeholder.svg?key=pefs2"),
-    new MenuDataItem(3, "Red Velvet Romance", "Elegant red velvet with cream cheese frosting", "specialty", 50, "/placeholder.svg?key=ea5pt"),
-    new MenuDataItem(4, "Chocolate Truffle", "Double chocolate with ganache and truffles", "chocolate", 55, "/placeholder.svg?key=x1jlo"),
-    new MenuDataItem(5, "Lavender Vanilla", "Delicate lavender and vanilla cake with floral notes", "vanilla", 48, "/placeholder.svg?key=acmuo"),
-    new MenuDataItem(6, "Black Forest", "Classic black forest with cherries and chocolate", "specialty", 52, "/placeholder.svg?key=xdlzu"),
-    new MenuDataItem(7, "Strawberry Bliss", "Light sponge with fresh strawberries and cream", "vanilla", 42, "/placeholder.svg?key=2oo96"),
-    new MenuDataItem(8, "Salted Caramel Chocolate", "Chocolate cake with salted caramel drizzle", "chocolate", 50, "/placeholder.svg?key=ub98j")
+$filters = [
+    'all'        => 'Everything',
+    'chocolate'  => 'Chocolate',
+    'vanilla'    => 'Vanilla & Fruit',
+    'specialty'  => 'Specialty',
 ];
 ?>
 
-<section id="menu" class="menu">
-        <div class="container">
-            <h2 class="section-title">Our Menu</h2>
-            <p class="section-subtitle">Exquisite flavors crafted to perfection</p>
-            
-            <div class="menu-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="chocolate">Chocolate</button>
-                <button class="filter-btn" data-filter="vanilla">Vanilla</button>
-                <button class="filter-btn" data-filter="specialty">Specialty</button>
-            </div>
+<section id="menu" class="section section--alt">
+    <div class="section-blob section-blob--gold" style="width:320px;height:320px;top:-80px;right:-60px;"></div>
 
-            <div class="menu-grid" id="menuGrid">
-            <?php foreach ($menuItems as $item) {?>
-                <div class="menu-card" data-category = "<?= $item->category?>">
-                    <img src = "<?= $item ->image?>" alt="<?= $item->name?>" class="menu-card-image">
-                    <div class="menu-card-content">
-                        <h3 class="menu-card-title"><?= $item->name?></h3>
-                        <p class="menu-card-description"><?php $item->description?></p>
-                        <div>
-                            <span class="menu-card-price-label">Price from</span>
-                            <div class="menu-card-price">$<?= $item->price?></div>
+    <div class="container">
+        <header class="section-heading" data-reveal>
+            <span class="eyebrow">Our menu</span>
+            <h2 class="section-title">Cakes worth the occasion</h2>
+            <p class="section-subtitle">
+                Every cake below is baked to order in one of three sizes. Tap any cake to see what goes
+                into it, how many it serves and what it costs.
+            </p>
+        </header>
+
+        <div class="menu-filters" role="group" aria-label="Filter cakes by flavour" data-reveal>
+            <?php foreach ($filters as $key => $label) { ?>
+                <button type="button"
+                        class="filter-btn<?= $key === 'all' ? ' is-active' : '' ?>"
+                        data-filter="<?= e($key) ?>"
+                        aria-pressed="<?= $key === 'all' ? 'true' : 'false' ?>">
+                    <?= e($label) ?>
+                </button>
+            <?php } ?>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+            <?php foreach ($menuItems as $item) { ?>
+                <button type="button"
+                        class="menu-card"
+                        data-category="<?= e($item->category) ?>"
+                        data-name="<?= e($item->name) ?>"
+                        data-category-label="<?= e($item->categoryLabel()) ?>"
+                        data-image="<?= e(asset($item->image)) ?>"
+                        data-badge="<?= e($item->badge) ?>"
+                        data-rating="<?= e((string) $item->rating) ?>"
+                        data-reviews="<?= e((string) $item->reviewCount) ?>"
+                        data-lead-time="<?= e($item->leadTime) ?>"
+                        data-long-description="<?= e($item->longDescription) ?>"
+                        data-ingredients="<?= attr_json($item->ingredients) ?>"
+                        data-sizes="<?= attr_json($item->sizes) ?>"
+                        aria-label="View details for <?= e($item->name) ?>">
+                    <div class="menu-card-media">
+                        <img src="<?= asset($item->image) ?>"
+                             alt="<?= e($item->name) ?>"
+                             class="menu-card-image"
+                             width="900" height="675" loading="lazy">
+
+                        <?php if ($item->badge !== '') { ?>
+                            <span class="menu-card-badge"><?= e($item->badge) ?></span>
+                        <?php } ?>
+
+                        <span class="menu-card-rating">
+                            <?= icon('star') ?><?= e(number_format($item->rating, 1)) ?>
+                        </span>
+
+                        <span class="menu-card-hint"><?= icon('eye') ?> View details</span>
+                    </div>
+
+                    <div class="menu-card-body">
+                        <span class="menu-card-category"><?= e($item->categoryLabel()) ?></span>
+                        <h3 class="menu-card-title"><?= e($item->name) ?></h3>
+                        <p class="menu-card-description"><?= e($item->shortDescription) ?></p>
+
+                        <div class="menu-card-footer">
+                            <div>
+                                <span class="menu-card-price-label">From</span>
+                                <div class="menu-card-price"><sup>$</sup><?= e((string) $item->basePrice()) ?></div>
+                            </div>
+                            <span class="btn btn--outline btn--sm">Details</span>
                         </div>
                     </div>
-                </div>
+                </button>
             <?php } ?>
-            </div>
         </div>
-    </section>
+
+        <p class="menu-note" data-reveal>
+            <strong>Need something bespoke?</strong> <?= e(site('lead_time_note')) ?>
+        </p>
+    </div>
+</section>
+
+<?php
+/* Detail modal — a single reusable shell that JS fills from the clicked card. */
+load_template('partials/cake-modal');

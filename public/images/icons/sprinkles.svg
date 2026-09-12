@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="340" height="340" viewBox="0 0 340 340">
+  <!-- Tileable confetti-sprinkle texture used as the hero background overlay -->
+  <g fill="none" stroke-linecap="round" stroke-width="5" opacity="0.55">
+    <path stroke="#c94a6f" d="M24 38l14-9"/>
+    <path stroke="#d9a441" d="M96 18l4 16"/>
+    <path stroke="#8c1f45" d="M168 46l15 6"/>
+    <path stroke="#e8637c" d="M244 22l-6 15"/>
+    <path stroke="#c48a2c" d="M310 44l12-10"/>
+    <path stroke="#d9a441" d="M52 92l16 3"/>
+    <path stroke="#8c1f45" d="M128 108l-8 14"/>
+    <path stroke="#e8637c" d="M206 86l13-9"/>
+    <path stroke="#c48a2c" d="M282 104l3 16"/>
+    <path stroke="#c94a6f" d="M18 150l10 13"/>
+    <path stroke="#d9a441" d="M92 168l16-5"/>
+    <path stroke="#8c1f45" d="M164 142l-4 16"/>
+    <path stroke="#e8637c" d="M240 162l14 7"/>
+    <path stroke="#c48a2c" d="M316 146l-11 12"/>
+    <path stroke="#8c1f45" d="M44 216l15-7"/>
+    <path stroke="#c94a6f" d="M120 232l6-15"/>
+    <path stroke="#d9a441" d="M198 210l16 6"/>
+    <path stroke="#e8637c" d="M276 228l-9 13"/>
+    <path stroke="#c48a2c" d="M26 286l13 9"/>
+    <path stroke="#8c1f45" d="M100 302l-5-16"/>
+    <path stroke="#e8637c" d="M172 280l16-4"/>
+    <path stroke="#d9a441" d="M248 300l10 12"/>
+    <path stroke="#c94a6f" d="M320 282l-14 8"/>
+  </g>
+  <g opacity="0.4">
+    <circle cx="66" cy="58" r="3.5" fill="#d9a441"/>
+    <circle cx="150" cy="24" r="3" fill="#e8637c"/>
+    <circle cx="222" cy="64" r="3.5" fill="#8c1f45"/>
+    <circle cx="298" cy="30" r="3" fill="#c48a2c"/>
+    <circle cx="34" cy="124" r="3" fill="#c94a6f"/>
+    <circle cx="112" cy="136" r="3.5" fill="#d9a441"/>
+    <circle cx="188" cy="116" r="3" fill="#e8637c"/>
+    <circle cx="262" cy="138" r="3.5" fill="#8c1f45"/>
+    <circle cx="330" cy="118" r="3" fill="#d9a441"/>
+    <circle cx="70" cy="190" r="3.5" fill="#e8637c"/>
+    <circle cx="144" cy="200" r="3" fill="#c48a2c"/>
+    <circle cx="220" cy="184" r="3.5" fill="#c94a6f"/>
+    <circle cx="296" cy="198" r="3" fill="#d9a441"/>
+    <circle cx="38" cy="252" r="3.5" fill="#8c1f45"/>
+    <circle cx="114" cy="264" r="3" fill="#d9a441"/>
+    <circle cx="192" cy="246" r="3.5" fill="#e8637c"/>
+    <circle cx="268" cy="266" r="3" fill="#c48a2c"/>
+    <circle cx="332" cy="248" r="3.5" fill="#c94a6f"/>
+    <circle cx="60" cy="322" r="3" fill="#e8637c"/>
+    <circle cx="136" cy="330" r="3.5" fill="#8c1f45"/>
+    <circle cx="212" cy="314" r="3" fill="#d9a441"/>
+    <circle cx="290" cy="332" r="3.5" fill="#c48a2c"/>
+  </g>
+</svg>

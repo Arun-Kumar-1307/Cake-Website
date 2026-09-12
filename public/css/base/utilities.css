@@ -1,0 +1,35 @@
+.container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+/* Scroll-reveal utility — toggled by components/reveal-on-scroll.js.
+   Starts hidden only when JS is available; if JS fails, content stays visible. */
+.js-enabled [data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-standard), transform 0.7s var(--ease-standard);
+}
+
+.js-enabled [data-reveal].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js-enabled [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

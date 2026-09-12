@@ -1,0 +1,39 @@
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-display);
+    color: var(--text-heading);
+    line-height: 1.15;
+    font-weight: 700;
+}
+
+p {
+    color: var(--text-body);
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand-primary);
+}
+
+.eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 2px;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-pill);
+}
+
+.text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}

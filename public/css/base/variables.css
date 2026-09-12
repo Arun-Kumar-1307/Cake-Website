@@ -1,0 +1,111 @@
+/*
+ * Design tokens for Artisan Cake Studio.
+ * Every color/spacing/type value used across components should come from here —
+ * change the palette or scale once, it propagates everywhere.
+ */
+:root {
+    /* ---- Brand palette ---- */
+    /* Deep berry/burgundy — primary, echoes red velvet & fresh berries */
+    --color-primary-900: #4a0e29;
+    --color-primary-700: #6d1638;
+    --color-primary-600: #8c1f45;
+    --color-primary-500: #a8244f;
+    --color-primary-400: #c94a6f;
+
+    /* Warm gold/caramel — secondary, echoes caramel & buttercream */
+    --color-gold-700: #a5731f;
+    --color-gold-600: #c48a2c;
+    --color-gold-500: #d9a441;
+    --color-gold-400: #e6bc66;
+    --color-gold-200: #f5deac;
+
+    /* Blush rose — tertiary accent for soft highlights */
+    --color-rose-500: #e8637c;
+    --color-rose-300: #f3a9b8;
+    --color-rose-100: #fbe4e8;
+
+    /* Chocolate neutrals — text & dark surfaces */
+    --color-choc-900: #241209;
+    --color-choc-800: #331a10;
+    --color-choc-700: #4a2a1c;
+    --color-choc-500: #7a5c4c;
+    --color-choc-300: #b09b8c;
+
+    /* Cream neutrals — backgrounds */
+    --color-cream-000: #fffdf9;
+    --color-cream-100: #fff8ef;
+    --color-cream-200: #fbeee0;
+    --color-cream-300: #f3ddc7;
+
+    --color-white: #ffffff;
+
+    /* ---- Semantic tokens ---- */
+    --bg-body: var(--color-cream-000);
+    --bg-section-alt: var(--color-cream-100);
+    --bg-surface: var(--color-white);
+    --bg-dark: var(--color-choc-900);
+
+    --text-heading: var(--color-choc-900);
+    --text-body: var(--color-choc-700);
+    --text-muted: var(--color-choc-500);
+    --text-on-dark: var(--color-cream-100);
+    --text-on-dark-muted: rgba(255, 248, 239, 0.75);
+
+    --brand-primary: var(--color-primary-600);
+    --brand-primary-strong: var(--color-primary-700);
+    --brand-gold: var(--color-gold-500);
+    --brand-gold-strong: var(--color-gold-600);
+
+    --border-subtle: rgba(74, 42, 28, 0.1);
+    --border-gold: rgba(201, 138, 44, 0.35);
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, var(--color-primary-700) 0%, var(--color-primary-500) 55%, var(--color-gold-600) 130%);
+    --gradient-gold: linear-gradient(135deg, var(--color-gold-600) 0%, var(--color-gold-400) 100%);
+    --gradient-hero-bg: radial-gradient(circle at 15% 20%, rgba(217, 164, 65, 0.25), transparent 45%),
+        radial-gradient(circle at 85% 15%, rgba(232, 99, 124, 0.2), transparent 40%),
+        linear-gradient(160deg, #fdf3ea 0%, #fbe9dc 45%, #f8ddd3 100%);
+    --gradient-dark: linear-gradient(160deg, var(--color-choc-900) 0%, #3a1424 100%);
+    /* Berry-forward, with gold kept as a glow rather than a full stop so the
+       large contact panel never turns muddy where it meets the footer. */
+    --gradient-contact: radial-gradient(circle at 82% 12%, rgba(230, 188, 102, 0.28), transparent 45%),
+        linear-gradient(150deg, var(--color-primary-700) 0%, var(--color-primary-500) 55%, var(--color-primary-600) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(74, 26, 16, 0.08);
+    --shadow-md: 0 8px 24px rgba(74, 26, 16, 0.12);
+    --shadow-lg: 0 20px 48px rgba(74, 26, 16, 0.18);
+    --shadow-gold-glow: 0 8px 30px rgba(201, 138, 44, 0.35);
+    --shadow-primary-glow: 0 10px 32px rgba(140, 31, 69, 0.35);
+
+    /* Spacing scale */
+    --space-3xs: 0.25rem;
+    --space-2xs: 0.5rem;
+    --space-xs: 0.75rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-2xl: 4.5rem;
+    --space-3xl: 6rem;
+
+    /* Radii */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-pill: 999px;
+
+    /* Typography */
+    --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-body: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    /* Motion */
+    --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-fast: 0.2s var(--ease-standard);
+    --transition-base: 0.35s var(--ease-standard);
+    --transition-slow: 0.6s var(--ease-standard);
+
+    /* Layout */
+    --container-max: 1280px;
+    --header-height: 78px;
+}
